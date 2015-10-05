@@ -1,62 +1,42 @@
 <?php
 /**
- * storefront engine room
+ * Deli engine room
  *
- * @package storefront
+ * @package deli
  */
+
+/**
+ * Hooks & Filters.
+ * Hooks and filters pertaining to different parts of the theme.
+ */
+require get_stylesheet_directory() . '/inc/functions/hooks.php';
+require get_stylesheet_directory() . '/inc/structure/hooks.php';
+require get_stylesheet_directory() . '/inc/customizer/hooks.php';
+
 
 /**
  * Setup.
- * Enqueue styles, register widget regions, etc.
+ * Enqueue styles, specify color functions, etc.
  */
-require get_template_directory() . '/inc/functions/setup.php';
+require get_stylesheet_directory() . '/inc/functions/setup.php';
+
+/**
+ * Customizer.
+ * Adjust Storefront setting defaults with these colors
+ */
+require get_stylesheet_directory() . '/inc/customizer/display.php';
+require get_stylesheet_directory() . '/inc/customizer/controls.php';
+require get_stylesheet_directory() . '/inc/customizer/colors.php';
 
 /**
  * Structure.
- * Template functions used throughout the theme.
+ * Any functions pertaining to the customisation of the Storefront layout.
  */
-require get_template_directory() . '/inc/structure/hooks.php';
-require get_template_directory() . '/inc/structure/post.php';
-require get_template_directory() . '/inc/structure/page.php';
-require get_template_directory() . '/inc/structure/header.php';
-require get_template_directory() . '/inc/structure/footer.php';
-require get_template_directory() . '/inc/structure/comments.php';
-require get_template_directory() . '/inc/structure/template-tags.php';
+require get_stylesheet_directory() . '/inc/structure/structure.php';
 
 /**
- * Custom functions that act independently of the theme templates.
+ * Storefront Extensions.
+ * Declares incompatibility with specific extensions.
+ * Modifies extensions current behaviour to suit the child theme.
  */
-require get_template_directory() . '/inc/functions/extras.php';
-
-/**
- * Customizer additions.
- */
-if ( is_storefront_customizer_enabled() ) {
-	require get_template_directory() . '/inc/customizer/hooks.php';
-	require get_template_directory() . '/inc/customizer/controls.php';
-	require get_template_directory() . '/inc/customizer/display.php';
-	require get_template_directory() . '/inc/customizer/functions.php';
-	require get_template_directory() . '/inc/customizer/custom-header.php';
-}
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack/jetpack.php';
-
-/**
- * Welcome screen
- */
-if ( is_admin() ) {
-	require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
-}
-
-/**
- * Load WooCommerce compatibility files.
- */
-if ( is_woocommerce_activated() ) {
-	require get_template_directory() . '/inc/woocommerce/hooks.php';
-	require get_template_directory() . '/inc/woocommerce/functions.php';
-	require get_template_directory() . '/inc/woocommerce/template-tags.php';
-	require get_template_directory() . '/inc/woocommerce/integrations.php';
-}
+require get_stylesheet_directory() . '/inc/functions/storefront-extensions.php';

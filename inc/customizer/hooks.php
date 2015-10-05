@@ -1,13 +1,53 @@
 <?php
 /**
- * storefront customizer hooks
+ * General setup hooks and filters
  *
- * @package storefront
+ * @package deli
  */
 
-add_action( 'customize_preview_init', 			'storefront_customize_preview_js' );
-add_action( 'customize_register', 				'storefront_customize_register' );
-add_filter( 'body_class', 						'storefront_layout_class' );
-add_action( 'wp_enqueue_scripts', 				'storefront_add_customizer_css', 130 );
-add_action( 'after_setup_theme', 				'storefront_custom_header_setup' );
-add_action( 'customize_controls_print_styles', 	'storefront_customizer_custom_control_css' );
+/**
+ * Add Deli specific CSS selectors based on customizer settings
+ */
+add_action( 'wp_enqueue_scripts', 								'deli_add_customizer_css', 1000 );
+
+/**
+ * Adjust Storefront default controls
+ */
+add_action( 'customize_register', 								'deli_customize_storefront_controls', 99 );
+
+/**
+ * Customizer default color tweaks
+ */
+add_filter( 'storefront_default_heading_color', 				'deli_color_charcoal' );
+add_filter( 'storefront_default_footer_heading_color', 			'deli_color_white' );
+
+
+// The navigation bg
+add_filter( 'storefront_default_header_background_color', 		'deli_color_orange' );
+
+add_filter( 'storefront_default_footer_background_color', 		'deli_color_charcoal' );
+
+add_filter( 'storefront_default_header_link_color', 			'deli_color_white' );
+add_filter( 'storefront_default_header_text_color', 			'deli_color_white' );
+
+add_filter( 'storefront_default_button_background_color', 		'deli_color_blue' );
+add_filter( 'storefront_default_button_text_color', 			'deli_color_white' );
+
+add_filter( 'storefront_default_button_alt_background_color', 	'deli_color_orange' );
+add_filter( 'storefront_default_button_alt_text_color', 		'deli_color_white' );
+
+add_filter( 'storefront_default_footer_link_color', 			'deli_color_tan' );
+
+add_filter( 'storefront_default_text_color', 					'deli_color_english_winter' );
+add_filter( 'storefront_default_footer_text_color', 			'deli_color_white' );
+
+add_filter( 'storefront_default_accent_color', 					'deli_color_blue' );
+
+add_filter( 'storefront_default_background_color', 				'deli_color_leather' );
+
+
+
+/**
+ * Custom background
+ */
+add_filter( 'storefront_custom_background_args', 				'deli_background' );

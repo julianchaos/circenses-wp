@@ -1,19 +1,14 @@
 <?php
 /**
- * storefront engine room
+ * Deli engine room
  *
- * @package storefront
+ * @package deli
  */
 
 /**
  * Initialize all the things.
  */
-require get_template_directory() . '/inc/init.php';
-
-/**
- * Note: Do not add any custom code here. Please use a child theme so that your customizations aren't lost during updates.
- * http://codex.wordpress.org/Child_Themes
- */
+require get_stylesheet_directory() . '/inc/init.php';
 
 // crie a taxonomia cidade na functions do tema
 add_action('init', 'register_locations');
