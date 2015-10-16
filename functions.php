@@ -19,6 +19,7 @@ function register_locations() {
 	array( 'hierarchical' => true,
 		'label' => 'Cidades',
 		'show_ui' => true,
+		'show_in_menu' => false,
 		'query_var' => true,
 		'show_admin_column' => true,
 		'labels' => array (
